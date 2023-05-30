@@ -1,0 +1,55 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+.description {
+    width: 320px;
+    height: 100px;
+    font-size: 12px;
+}
+.card {
+    max-height: 200px;
+    background-color: #313b4b;
+    color: #bfbfbf;
+}
+
+.readmore {
+    text-decoration: none;
+    color: lightslategray;
+    font-size: 14px;
+}
+.form-control-sm {
+    background-color: #bfbfbf;
+}
+textarea {
+    background-color: #bfbfbf;
+}
+.navbar {
+    background-color: #212529;
+}
+.nav-link {
+    text-decoration: none;
+    color: #bfbfbf;
+}
+
+.viewrow {
+    margin-left:12%;
+    width: 100%;
+  
+}
+body {
+    color:#bfbfbf;
+    background-color: #15191d;
+    margin-bottom: 60px;
+}
+

@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model CollectionManager.Models.Links
+
+
+<div class="text-center">
+    <h3>Store your links in one simple place.</h3> 
+    <br />
+    <form method="POST" asp-action="Add">
+    <input type="text" placeholder="Title" class="form-control-sm w-25" asp-for="Title">
+   <br /><br />
+    <input type="text" placeholder="Link" class="form-control-sm w-25" asp-for="Url" />
+    <br /><br />
+        <textarea class="description" placeholder="Enter a brief description" asp-for="Description"></textarea>
+        <br /><br />
+    <button type="submit" class="btn btn-outline-light w-25">Add</button>
+    </form>
+</div>
+
+<a href="./Home/ViewThem">View</a>
