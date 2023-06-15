@@ -1,32 +1,35 @@
 ﻿@{
-    ViewData["Title"] = "ViewThem";
+    ViewData["Title"] = "Collection";
 }
 @model List<Links>
+
+
+
+
 <div class="row viewrow">
 
-    @foreach(Links l in Model)
+    @foreach (Links l in Model)
     {
-        
-    <div class="card w-25 rounded-5 text-md-center m-1">
-        <div class="card-header ">
-            @l.Title
-        </div>
-        <div class="card-body">
-            <p class="card-text">
-             @if (l.Description.Length > 50)
-                    {
-                        @l.Description.Substring(0,50);
-                        <a href="./Privacy" class="readmore">Read More...</a>
-                    }
-             else @l.Description
-                
-             </p>
+
+        <div class="card w-25 rounded-5 text-md-center m-1 border-white">
             
-        </div>
-        <div class="card-footer">
-                    <a href="@l.Url" class="btn btn-outline-success w-100 mb-2">Visit Link</a>
+                <form method="POST" asp-action="Delete" asp-route-Id="@l.Id">
+                <button class="btn btn-close delete float-start border-light mt-2" type="submit"></button>
+                </form>
+                <strong>@l.Title</strong>
+                
+            <div class="card-body">
+                <p class="card-text">
+                        @l.Description 
+                    </p>
+
+                </div>
+                <div class="card-footer">
+                    <a href="@l.Url" class="btn btn-outline-light w-100 mb-2">Visit Link</a>
+                </div>
             </div>
-    </div>
-    
+
     }
 </div>
+</div>
+

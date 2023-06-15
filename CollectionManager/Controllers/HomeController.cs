@@ -29,20 +29,29 @@ namespace CollectionManager.Controllers
             return View(list);
         }
 
-        public IActionResult Privacy()
-        {
-            _context.Links.RemoveRange(_context.Links);
-            _context.SaveChanges();
-            return View();
-        }
+
         [HttpPost]
         public IActionResult Add(Links model)
         {
             _context.Links.Add(model);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewThem");
         }
+
+        public IActionResult Delete(int id)
+        {
+            Links link = _context.Links.Find(id);
+            if (link != null)
+            {
+                _context.Links.Remove(link);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("ViewThem");
+        }
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

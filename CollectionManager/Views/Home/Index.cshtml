@@ -2,20 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 @model CollectionManager.Models.Links
+<script>
 
-
+    description.addEventListener("keyup", updateLetterCount);
+</script>
+<div class="card p-3 main">
 <div class="text-center">
-    <h3>Store your links in one simple place.</h3> 
+        <h3><div class="card-header bg-gradient">Store your links in one simple place.</div></h3>
     <br />
     <form method="POST" asp-action="Add">
-    <input type="text" placeholder="Title" class="form-control-sm w-25" asp-for="Title">
-   <br /><br />
-    <input type="text" placeholder="Link" class="form-control-sm w-25" asp-for="Url" />
-    <br /><br />
-        <textarea class="description" placeholder="Enter a brief description" asp-for="Description"></textarea>
+        <input type="text" placeholder="Title" class="form-control-sm w-50" asp-for="Title" maxlength="50">
         <br /><br />
-    <button type="submit" class="btn btn-outline-light w-25">Add</button>
+        <input type="text" value="http://www." class="form-control-sm w-50" asp-for="Url" />
+        <br /><br />
+<textarea class="description" placeholder="Enter a brief description" asp-for="Description" maxlength="100" onkeyup="updateLetterCount()"></textarea>
+
+<script>
+                function updateLetterCount() {
+                var description = document.querySelector(".description");
+                var letterCount = description.value.length;
+                var letterCountElement = document.querySelector("#letter-count");
+                letterCountElement.textContent = letterCount;
+
+                if(letterCount == 100) {
+                    letterCountElement.style ="color:red;";
+                } else
+                letterCountElement.style="color:white;";
+                                               }
+</script>
+<br />
+        <span id="letter-count" style="color:white;"></span>/100
+        <br /><br />
+        
+        <button type="submit" class="btn btn-outline-light w-25">Add</button>
+        
     </form>
+    </div>
 </div>
 
-<a href="./Home/ViewThem">View</a>
+
